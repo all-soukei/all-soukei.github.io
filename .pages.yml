@@ -1,0 +1,69 @@
+media:
+  input: images/uploads
+  output: /images/uploads
+  rename: safe
+  categories: [image]
+
+content:
+  - name: articles
+    label: 記事
+    type: collection
+    path: _articles
+    format: yaml-frontmatter
+
+    filename:
+      template: "{slug}.md"
+      field: create
+
+    view:
+      fields: [title, date, category]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+
+    fields:
+      - name: title
+        label: 記事タイトル
+        type: string
+        required: true
+
+      - name: date
+        label: 公開日
+        type: date
+        required: true
+        options:
+          time: false
+          format: yyyy-MM-dd
+
+      - name: category
+        label: 大学・カテゴリー
+        type: select
+        required: true
+        options:
+          values:
+            - name: WASEDA
+              label: 早稲田大学
+            - name: KEIO
+              label: 慶應義塾大学
+            - name: SPECIAL
+              label: SPECIAL
+
+      - name: description
+        label: 記事の説明
+        type: text
+        required: false
+
+      - name: image
+        label: メイン画像
+        type: image
+        required: false
+
+      - name: body
+        label: 本文
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          switcher: false
