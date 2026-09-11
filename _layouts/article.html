@@ -1,0 +1,387 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ page.title }} | オール早慶戦</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f5f0;
+      color: #171717;
+      font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        "Noto Serif JP",
+        serif;
+      line-height: 2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid #ddd8cf;
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-main {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .logo-sub {
+      margin-top: 8px;
+      font-family: Georgia, serif;
+      font-size: 9px;
+      letter-spacing: .34em;
+    }
+
+    nav {
+      display: flex;
+      gap: 34px;
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: .14em;
+    }
+
+    /* ARTICLE HEADER */
+
+    .article-header {
+      padding: 100px 0 65px;
+    }
+
+    .article-type {
+      color: #7a0019;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      letter-spacing: .24em;
+      margin-bottom: 20px;
+    }
+
+    .article-type.keio {
+      color: #14213d;
+    }
+
+    .article-date {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      letter-spacing: .15em;
+      color: #77736c;
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: .04em;
+    }
+
+    .article-subtitle {
+      margin-top: 24px;
+      max-width: 760px;
+      color: #65615b;
+      font-size: 15px;
+    }
+
+    /* MAIN IMAGE */
+
+    .main-image {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .main-image img {
+      width: 100%;
+      max-height: 700px;
+      object-fit: cover;
+    }
+
+    /* ARTICLE BODY */
+
+    .article-content {
+      width: min(760px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 80px 0 110px;
+    }
+
+    .article-content p {
+      margin: 0 0 30px;
+      font-size: 16px;
+      line-height: 2.2;
+    }
+
+    .article-content h2 {
+      margin: 80px 0 30px;
+      padding-top: 20px;
+      border-top: 1px solid #bbb6ac;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .article-content h3 {
+      margin: 55px 0 24px;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .article-content img {
+      width: 100%;
+      margin: 55px 0;
+      height: auto;
+    }
+
+    .article-content blockquote {
+      margin: 50px 0;
+      padding: 5px 0 5px 25px;
+      border-left: 2px solid #7a0019;
+      color: #555;
+    }
+
+    .article-content a {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* BACK */
+
+    .back-area {
+      border-top: 1px solid #cbc7bf;
+      padding-top: 45px;
+      margin-top: 80px;
+    }
+
+    .back-link {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      letter-spacing: .15em;
+    }
+
+    /* OFFICIAL */
+
+    .official {
+      padding: 65px 20px;
+      background: #122633;
+      color: white;
+      text-align: center;
+    }
+
+    .official p {
+      margin: 0 0 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,.7);
+    }
+
+    .official a {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.7);
+      padding: 13px 30px;
+      font-size: 13px;
+      letter-spacing: .1em;
+    }
+
+    footer {
+      padding: 35px 0;
+      background: white;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright {
+      color: #99958d;
+      font-family: Georgia, serif;
+      font-size: 10px;
+      letter-spacing: .1em;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .header-inner {
+        min-height: 65px;
+      }
+
+      .logo-main {
+        font-size: 20px;
+      }
+
+      .article-header {
+        padding: 70px 0 45px;
+      }
+
+      .article-title {
+        font-size: 34px;
+      }
+
+      .article-content {
+        padding-top: 55px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a href="/" class="logo">
+      <span class="logo-main">オール早慶戦</span>
+      <span class="logo-sub">SPECIAL CONTENTS</span>
+    </a>
+
+    <nav>
+      <a href="/">TOP</a>
+      <a href="/#articles">ARTICLE</a>
+      <a href="https://allsoukei2026.jp/" target="_blank" rel="noopener">
+        OFFICIAL SITE
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="article-header">
+    <div class="container">
+
+      <div class="article-type {% if page.category == 'KEIO' %}keio{% endif %}">
+        {{ page.category }}
+      </div>
+
+      <div class="article-date">
+        {{ page.date | date: "%Y.%m.%d" }}
+      </div>
+
+      <h1 class="article-title">
+        {{ page.title }}
+      </h1>
+
+      {% if page.description %}
+      <p class="article-subtitle">
+        {{ page.description }}
+      </p>
+      {% endif %}
+
+    </div>
+  </section>
+
+
+  {% if page.image %}
+  <div class="main-image">
+    <img src="{{ page.image }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+
+  <article class="article-content">
+
+    {{ content }}
+
+    <div class="back-area">
+      <a href="/#articles" class="back-link">
+        ← ARTICLES
+      </a>
+    </div>
+
+  </article>
+
+</main>
+
+
+<section class="official">
+
+  <p>
+    オール早慶戦の大会情報はこちら
+  </p>
+
+  <a
+    href="https://allsoukei2026.jp/"
+    target="_blank"
+    rel="noopener"
+  >
+    大会公式サイトへ →
+  </a>
+
+</section>
+
+
+<footer>
+  <div class="container footer-inner">
+
+    <div class="logo">
+      <span class="logo-main">オール早慶戦</span>
+      <span class="logo-sub">SPECIAL CONTENTS</span>
+    </div>
+
+    <div class="copyright">
+      © 2026 ALL WASEDA-KEIO
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
