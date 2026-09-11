@@ -1,0 +1,14 @@
+title: オール早慶戦 SPECIAL CONTENTS
+timezone: Asia/Tokyo
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name.html
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
