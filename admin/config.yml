@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: all-soukei/all-soukei.github.io
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "ja"
+
+collections:
+  - name: "articles"
+    label: "記事"
+    folder: "content/articles"
+    create: true
+    slug: "{{year}}{{month}}{{day}}-{{slug}}"
+
+    fields:
+      - label: "記事タイトル"
+        name: "title"
+        widget: "string"
+
+      - label: "公開日"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY.MM.DD"
+        time_format: false
+
+      - label: "大学・カテゴリー"
+        name: "category"
+        widget: "select"
+        options:
+          - "WASEDA"
+          - "KEIO"
+          - "SPECIAL"
+
+      - label: "記事の説明"
+        name: "description"
+        widget: "text"
+        required: false
+
+      - label: "メイン画像"
+        name: "image"
+        widget: "image"
+        required: false
+
+      - label: "本文"
+        name: "body"
+        widget: "markdown"
