@@ -4,6 +4,7 @@ timezone: Asia/Tokyo
 collections:
   articles:
     output: true
+    future: ture
     permalink: /articles/:name.html
 
 defaults:
