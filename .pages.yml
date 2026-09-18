@@ -2,7 +2,7 @@ media:
   input: images
   output: /images
   rename: safe
-  categories: [image]
+  extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
 content:
   - name: articles
