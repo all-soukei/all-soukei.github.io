@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -631,6 +634,49 @@ background-repeat: no-repeat;
             <a class="pickup-card" href="articles/0919-waseda.html">
               <div class="placeholder">
                 PICK UP IMAGE
+            {% assign pickup_articles = site.articles | where: "pickup", true | sort: "date" | reverse %}
+            {% assign pickup = pickup_articles | first %}
+
+            {% if pickup %}
+
+            <a class="pickup-card" href="{{ pickup.url }}">
+
+              {% if pickup.image %}
+                <img
+                 src="{{ pickup.image }}"
+                 alt="{{ pickup.title }}"
+                style="width:100%; height:510px; object-fit:cover;"
+                >
+              {% else %}
+                  <div class="placeholder">PICK UP IMAGE</div>
+              {% endif %}
+
+              <div class="pickup-body">
+
+                <div class="meta">
+                  <span>{{ pickup.date | date: "%Y.%m.%d" }}</span>
+                  <span class="tag">{{ pickup.category }}</span>
+                </div>
+
+                <h3>
+                  {{ pickup.title }}
+                </h3>
+
+                {% if pickup.description %}
+                  <p>
+                    {{ pickup.description }}
+                   </p>
+                {% endif %}
+
+                <div class="read-more">
+                  READ MORE →
+                </div>
+
+              </div>
+
+              </a>
+
+              {% endif %}
               </div>
 
               <div class="pickup-body">
