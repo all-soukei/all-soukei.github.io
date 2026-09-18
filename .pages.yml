@@ -5,6 +5,11 @@ media:
   extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
 content:
+
+  # =========================
+  # 記事
+  # =========================
+
   - name: articles
     label: 記事
     type: collection
@@ -24,6 +29,7 @@ content:
         order: desc
 
     fields:
+
       - name: title
         label: 記事タイトル
         type: string
@@ -63,9 +69,9 @@ content:
           extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
       - name: pickup
-        label: PICK UPに表示  
+        label: PICK UPに表示
         type: boolean
-        default: false  
+        default: false
 
       - name: body
         label: 本文
@@ -74,70 +80,43 @@ content:
         options:
           format: markdown
           switcher: false
-          extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
-     - name: home
-       label: トップページ設定
-       type: file
-       path: _data/home.yml
-       format: yaml
-       operations:
-        delete: false
 
-        fields:
-          - name: next_date
-            label: NEXT CONTENT 公開予定日
-            type: date
-            required: true
-            options:
-              time: false
-              format: yyyy-MM-dd
+  # =========================
+  # トップページ設定
+  # =========================
 
-          - name: next_title
-            label: NEXT CONTENT タイトル
-            type: string
-            required: true
+  - name: home
+    label: トップページ設定
+    type: file
+    path: _data/home.yml
+    format: yaml
 
-          - name: next_description
-            label: NEXT CONTENT 説明
-            type: text
-            required: false
+    operations:
+      delete: false
 
-          - name: next_status
-            label: 表示テキスト
-            type: string
-            required: true
-            default: COMING SOON
-            
-              - name: home
-                label: トップページ設定
-                type: file
-                path: _data/home.yml
-                format: yaml
-                operations:
-                  delete: false
+    fields:
 
-              fields:
-                - name: next_date
-                  label: NEXT CONTENT 公開予定日
-                  type: date
-                  required: true
-                  options:
-                    time: false
-                    format: yyyy-MM-dd
+      - name: next_date
+        label: NEXT CONTENT 公開予定日
+        type: date
+        required: true
+        options:
+          time: false
+          format: yyyy-MM-dd
 
-                - name: next_title
-                  label: NEXT CONTENT タイトル
-                  type: string
-                  required: true
+      - name: next_title
+        label: NEXT CONTENT タイトル
+        type: string
+        required: true
 
-                - name: next_description
-                  label: NEXT CONTENT 説明
-                  type: text
-                  required: false
-  
-                - name: next_status
-                  label: 表示テキスト
-                  type: string
-                  required: true
-                  default: COMING SOON
+      - name: next_description
+        label: NEXT CONTENT 説明
+        type: text
+        required: false
+
+      - name: next_status
+        label: 表示テキスト
+        type: string
+        required: true
+        default: COMING SOON
