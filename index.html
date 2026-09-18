@@ -62,7 +62,6 @@
 
     header {
       background: rgba(255, 255, 255, 0.96);
-
       border-bottom: 1px solid #ddd8cf;
 
       position: sticky;
@@ -218,10 +217,7 @@
     }
 
     .menu-drawer-inner {
-      padding:
-        140px
-        50px
-        60px;
+      padding: 140px 50px 60px;
     }
 
     .menu-small {
@@ -899,6 +895,218 @@
 
 
     /* =========================
+       OFFICIAL LINKS
+    ========================= */
+
+    .links-section {
+      padding: 82px 0 75px;
+
+      background: #f7f5f0;
+
+      border-bottom: 1px solid #ddd8cf;
+    }
+
+    .links-heading {
+      text-align: center;
+
+      margin-bottom: 42px;
+    }
+
+    .links-heading-en {
+      font-family: Georgia, serif;
+
+      font-size: 27px;
+
+      letter-spacing: 0.16em;
+
+      font-weight: 500;
+    }
+
+    .links-heading-jp {
+      margin-top: 5px;
+
+      color: #77736c;
+
+      font-size: 12px;
+
+      letter-spacing: 0.1em;
+    }
+
+
+    /* SOCIAL */
+
+    .social-area {
+      text-align: center;
+
+      margin-bottom: 55px;
+    }
+
+    .social-title {
+      margin-bottom: 20px;
+
+      font-family: Georgia, serif;
+
+      font-size: 11px;
+
+      letter-spacing: 0.2em;
+
+      color: #77736c;
+    }
+
+    .social-links {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 16px;
+    }
+
+    .social-icon {
+      width: 52px;
+      height: 52px;
+
+      border: 1px solid #bbb7ae;
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: transparent;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .social-icon:hover {
+      background: #151515;
+
+      color: white;
+
+      border-color: #151515;
+
+      transform: translateY(-3px);
+    }
+
+    .social-icon svg {
+      width: 21px;
+      height: 21px;
+
+      fill: currentColor;
+    }
+
+
+    /* CLUB LINKS */
+
+    .club-links-title {
+      margin-bottom: 15px;
+
+      text-align: center;
+
+      font-family: Georgia, serif;
+
+      font-size: 11px;
+
+      letter-spacing: 0.2em;
+
+      color: #77736c;
+    }
+
+    .club-links {
+      width: min(800px, 100%);
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 16px;
+    }
+
+    .club-link {
+      min-height: 112px;
+
+      padding: 24px 28px;
+
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      border: 1px solid #c9c5bc;
+
+      background: white;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .club-link:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 28px
+        rgba(0, 0, 0, 0.06);
+    }
+
+    .club-link.waseda:hover {
+      border-color: #7a0019;
+    }
+
+    .club-link.keio:hover {
+      border-color: #14213d;
+    }
+
+    .club-link-info {
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    .club-link-school {
+      margin-bottom: 4px;
+
+      font-family: Georgia, serif;
+
+      font-size: 10px;
+
+      letter-spacing: 0.18em;
+    }
+
+    .club-link.waseda .club-link-school {
+      color: #7a0019;
+    }
+
+    .club-link.keio .club-link-school {
+      color: #14213d;
+    }
+
+    .club-link-name {
+      font-size: 17px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.04em;
+    }
+
+    .club-link-arrow {
+      font-family: Georgia, serif;
+
+      font-size: 21px;
+
+      margin-left: 20px;
+    }
+
+
+    /* =========================
        FOOTER
     ========================= */
 
@@ -1112,6 +1320,42 @@
         font-size: 24px;
       }
 
+      .links-section {
+        padding:
+          65px
+          0
+          58px;
+      }
+
+      .links-heading {
+        margin-bottom: 34px;
+      }
+
+      .links-heading-en {
+        font-size: 24px;
+      }
+
+      .social-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .club-links {
+        grid-template-columns: 1fr;
+      }
+
+      .club-link {
+        min-height: 96px;
+
+        padding:
+          20px
+          22px;
+      }
+
+      .club-link-name {
+        font-size: 16px;
+      }
+
     }
 
   </style>
@@ -1129,7 +1373,6 @@
   <header>
 
     <div class="container header-inner">
-
 
       <a
         class="site-logo"
@@ -1161,7 +1404,6 @@
 
       </button>
 
-
     </div>
 
   </header>
@@ -1185,7 +1427,6 @@
 
     <div class="menu-drawer-inner">
 
-
       <div class="menu-small">
         ALL WASEDA-KEIO
       </div>
@@ -1195,13 +1436,8 @@
         href="/"
         class="menu-link"
       >
-
-        <span>
-          01
-        </span>
-
+        <span>01</span>
         TOP
-
       </a>
 
 
@@ -1209,13 +1445,8 @@
         href="/#articles"
         class="menu-link"
       >
-
-        <span>
-          02
-        </span>
-
+        <span>02</span>
         ARTICLES
-
       </a>
 
 
@@ -1225,15 +1456,9 @@
         rel="noopener"
         class="menu-link"
       >
-
-        <span>
-          03
-        </span>
-
+        <span>03</span>
         OFFICIAL SITE
-
       </a>
-
 
     </div>
 
@@ -1253,7 +1478,6 @@
       <div class="container">
 
         <div class="hero-content">
-
 
           <div class="hero-kicker">
             WASEDA × KEIO
@@ -1278,19 +1502,15 @@
 
           <div class="hero-info">
 
-
             <div class="hero-date">
               2026.11.28 SAT
             </div>
-
 
             <div class="hero-place">
               阪神甲子園球場
             </div>
 
-
           </div>
-
 
         </div>
 
@@ -1308,7 +1528,6 @@
 
       <div class="container">
 
-
         <div class="section-en">
           SPECIAL CONTENTS
         </div>
@@ -1323,7 +1542,6 @@
           選手、応援、歴史。さまざまな視点から、
           オール早慶戦の魅力をお届けします。
         </p>
-
 
       </div>
 
@@ -1342,13 +1560,9 @@
         <div class="feature-grid">
 
 
-
-          <!-- =====================
-               PICK UP
-          ====================== -->
+          <!-- PICK UP -->
 
           <div>
-
 
             <div class="feature-label">
 
@@ -1363,58 +1577,44 @@
             </div>
 
 
-
             {% assign pickup_articles = site.articles | where: "pickup", true | sort: "date" | reverse %}
             {% assign pickup = pickup_articles | first %}
 
 
-
             {% if pickup %}
-
 
               <a
                 class="pickup-card"
                 href="{{ pickup.url | relative_url }}"
               >
 
-
                 <div class="pickup-image">
 
-
                   {% if pickup.image %}
-
 
                     <img
                       src="{{ pickup.image }}"
                       alt="{{ pickup.title }}{% if pickup.title_line2 %} {{ pickup.title_line2 }}{% endif %}"
                     >
 
-
                   {% else %}
-
 
                     <div class="placeholder">
                       PICK UP IMAGE
                     </div>
 
-
                   {% endif %}
-
 
                 </div>
 
 
-
                 <div class="pickup-body">
 
-
                   <div class="meta">
-
 
                     <span>
                       {{ pickup.date | date: "%Y.%m.%d" }}
                     </span>
-
 
                     <span
                       class="tag {% if pickup.category == 'KEIO' %}keio{% endif %}"
@@ -1422,9 +1622,7 @@
                       {{ pickup.category }}
                     </span>
 
-
                   </div>
-
 
 
                   <h3>
@@ -1439,29 +1637,22 @@
                   </h3>
 
 
-
                   {% if pickup.description %}
-
 
                     <p>
                       {{ pickup.description }}
                     </p>
 
-
                   {% endif %}
-
 
 
                   <div class="read-more">
                     READ MORE →
                   </div>
 
-
                 </div>
 
-
               </a>
-
 
 
             {% else %}
@@ -1469,125 +1660,95 @@
 
               <div class="pickup-card">
 
-
                 <div class="pickup-image">
-
 
                   <div class="placeholder">
                     PICK UP IMAGE
                   </div>
-
 
                 </div>
 
 
                 <div class="pickup-body">
 
-
                   <p>
                     現在PICK UP記事はありません。
                   </p>
 
-
                 </div>
-
 
               </div>
 
 
             {% endif %}
 
-
           </div>
 
 
 
-          <!-- =====================
-               NEXT CONTENT
-          ====================== -->
+          <!-- NEXT CONTENT -->
 
           <div>
 
-
             <div class="feature-label">
-
 
               <strong>
                 NEXT CONTENT
               </strong>
 
-
               <span>
                 次回の公開予定
               </span>
 
-
             </div>
-
 
 
             <div class="next-card">
 
-
               {% if site.data.home.next_date %}
-
 
                 <div class="next-date">
                   {{ site.data.home.next_date | date: "%Y.%m.%d" }}
                 </div>
 
-
               {% endif %}
-
 
 
               <div class="next-line"></div>
 
 
-
               {% if site.data.home.next_title %}
-
 
                 <h3>
                   {{ site.data.home.next_title }}
                 </h3>
 
-
               {% endif %}
 
 
-
               {% if site.data.home.next_description %}
-
 
                 <p>
                   {{ site.data.home.next_description }}
                 </p>
 
-
               {% endif %}
 
 
-
               {% if site.data.home.next_status %}
-
 
                 <div class="coming">
                   {{ site.data.home.next_status }}
                 </div>
 
-
               {% endif %}
 
-
             </div>
-
 
           </div>
 
 
         </div>
-
 
       </div>
 
@@ -1604,86 +1765,64 @@
       id="articles"
     >
 
-
       <div class="container">
-
 
         <div class="section-heading">
 
-
           <div class="section-heading-left">
-
 
             <h2>
               ARTICLES
             </h2>
 
-
             <span>
               公開された記事
             </span>
 
-
           </div>
-
 
         </div>
 
 
-
         <div class="articles-grid">
-
 
           {% assign articles = site.articles | sort: "date" | reverse %}
 
 
-
           {% for article in articles %}
-
 
             <a
               class="article-card"
               href="{{ article.url | relative_url }}"
             >
 
-
               <div class="article-image">
 
-
                 {% if article.image %}
-
 
                   <img
                     src="{{ article.image }}"
                     alt="{{ article.title }}{% if article.title_line2 %} {{ article.title_line2 }}{% endif %}"
                   >
 
-
                 {% else %}
-
 
                   <div class="placeholder">
                     ARTICLE IMAGE
                   </div>
 
-
                 {% endif %}
-
 
               </div>
 
 
-
               <div class="article-card-body">
 
-
                 <div class="meta">
-
 
                   <span>
                     {{ article.date | date: "%Y.%m.%d" }}
                   </span>
-
 
                   <span
                     class="tag {% if article.category == 'KEIO' %}keio{% endif %}"
@@ -1691,9 +1830,7 @@
                     {{ article.category }}
                   </span>
 
-
                 </div>
-
 
 
                 <h3>
@@ -1707,21 +1844,15 @@
 
                 </h3>
 
-
               </div>
-
 
             </a>
 
-
           {% endfor %}
-
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -1732,7 +1863,6 @@
     ========================= -->
 
     <section class="official">
-
 
       <div class="official-small">
         オール早慶戦の詳細はこちら
@@ -1758,6 +1888,187 @@
         大会公式サイトへ →
       </a>
 
+    </section>
+
+
+
+    <!-- =========================
+         OFFICIAL LINKS
+    ========================= -->
+
+    <section class="links-section">
+
+      <div class="container">
+
+
+        <div class="links-heading">
+
+          <div class="links-heading-en">
+            OFFICIAL LINKS
+          </div>
+
+          <div class="links-heading-jp">
+            公式SNS・関連サイト
+          </div>
+
+        </div>
+
+
+
+        <!-- SNS -->
+
+        <div class="social-area">
+
+          <div class="social-title">
+            ALL WASEDA-KEIO OFFICIAL SNS
+          </div>
+
+
+          <div class="social-links">
+
+
+            <!-- Instagram -->
+
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/allsoukei/"
+              target="_blank"
+              rel="noopener"
+              aria-label="全早慶野球戦 公式Instagram"
+              title="Instagram"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+              </svg>
+
+            </a>
+
+
+
+            <!-- Facebook -->
+
+            <a
+              class="social-icon"
+              href="https://www.facebook.com/allsoukei/"
+              target="_blank"
+              rel="noopener"
+              aria-label="全早慶野球戦 公式Facebook"
+              title="Facebook"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3h2.8v8h3.4Z"/>
+              </svg>
+
+            </a>
+
+
+
+            <!-- X -->
+
+            <a
+              class="social-icon"
+              href="https://x.com/allsoukei"
+              target="_blank"
+              rel="noopener"
+              aria-label="全早慶野球戦 公式X"
+              title="X"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-6.4L6.5 22H3.4l7.2-8.3L2.9 2h6.3l4.4 5.8L18.9 2Zm-1.1 18h1.7L8.3 3.9H6.5L17.8 20Z"/>
+              </svg>
+
+            </a>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- BASEBALL CLUB -->
+
+        <div class="club-links-title">
+          BASEBALL CLUB
+        </div>
+
+
+        <div class="club-links">
+
+
+          <!-- WASEDA -->
+
+          <a
+            class="club-link waseda"
+            href="https://www.wasedabbc.org/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="club-link-info">
+
+              <span class="club-link-school">
+                WASEDA
+              </span>
+
+              <span class="club-link-name">
+                早稲田大学野球部
+              </span>
+
+            </div>
+
+            <span class="club-link-arrow">
+              ↗
+            </span>
+
+          </a>
+
+
+
+          <!-- KEIO -->
+
+          <a
+            class="club-link keio"
+            href="https://baseball.sfc.keio.ac.jp/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="club-link-info">
+
+              <span class="club-link-school">
+                KEIO
+              </span>
+
+              <span class="club-link-name">
+                慶應義塾体育会野球部
+              </span>
+
+            </div>
+
+            <span class="club-link-arrow">
+              ↗
+            </span>
+
+          </a>
+
+
+        </div>
+
+
+      </div>
 
     </section>
 
@@ -1772,34 +2083,26 @@
 
   <footer>
 
-
     <div class="container footer-inner">
 
-
       <div class="site-logo">
-
 
         <span class="site-logo-main">
           オール早慶戦
         </span>
 
-
         <span class="site-logo-sub">
           SPECIAL CONTENTS
         </span>
 
-
       </div>
-
 
 
       <div class="copyright">
         © 2026 ALL WASEDA-KEIO
       </div>
 
-
     </div>
-
 
   </footer>
 
