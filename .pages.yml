@@ -32,7 +32,7 @@ content:
 
       - name: title
         label: 記事タイトル
-        type: string
+        type: text
         required: true
 
       - name: date
