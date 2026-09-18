@@ -5,8 +5,8 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>オール早慶戦 | SPECIAL CONTENTS</title>
 
@@ -46,6 +46,10 @@
       display: block;
     }
 
+    button {
+      font: inherit;
+    }
+
     .container {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -57,13 +61,14 @@
     ========================= */
 
     header {
-      background: rgba(255,255,255,0.96);
+      background: rgba(255, 255, 255, 0.96);
+
       border-bottom: 1px solid #ddd8cf;
 
       position: sticky;
       top: 0;
 
-      z-index: 100;
+      z-index: 300;
     }
 
     .header-inner {
@@ -94,45 +99,177 @@
       margin-top: 8px;
 
       font-family: Georgia, serif;
+
       font-size: 9px;
 
       letter-spacing: 0.34em;
     }
 
-    nav {
+
+    /* =========================
+       HAMBURGER BUTTON
+    ========================= */
+
+    .menu-button {
+      width: 46px;
+      height: 46px;
+
+      padding: 0;
+
+      border: 0;
+      background: transparent;
+
       display: flex;
-      gap: 34px;
+      flex-direction: column;
 
       align-items: center;
+      justify-content: center;
+
+      gap: 6px;
+
+      cursor: pointer;
+
+      position: relative;
+
+      z-index: 500;
+    }
+
+    .menu-button span {
+      display: block;
+
+      width: 27px;
+      height: 1.5px;
+
+      background: #151515;
+
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    .menu-button.active span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.active span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+
+    /* =========================
+       MENU OVERLAY
+    ========================= */
+
+    .menu-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.38);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+      z-index: 350;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+
+    /* =========================
+       MENU DRAWER
+    ========================= */
+
+    .menu-drawer {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+
+      width: min(420px, 88vw);
+      height: 100vh;
+
+      background: #f7f5f0;
+
+      transform: translateX(100%);
+
+      transition: transform 0.35s ease;
+
+      z-index: 400;
+
+      border-left: 1px solid #ddd8cf;
+
+      overflow-y: auto;
+    }
+
+    .menu-drawer.active {
+      transform: translateX(0);
+    }
+
+    .menu-drawer-inner {
+      padding:
+        140px
+        50px
+        60px;
+    }
+
+    .menu-small {
+      margin-bottom: 40px;
 
       font-family: Georgia, serif;
-      font-size: 12px;
 
-      letter-spacing: 0.14em;
+      color: #7a0019;
+
+      font-size: 11px;
+
+      letter-spacing: 0.25em;
     }
 
-    nav a {
-      position: relative;
+    .menu-link {
+      display: flex;
+
+      align-items: baseline;
+
+      gap: 18px;
+
+      padding: 22px 0;
+
+      border-bottom: 1px solid #d7d3ca;
+
+      font-family: Georgia, serif;
+
+      font-size: 26px;
+
+      letter-spacing: 0.08em;
+
+      transition:
+        padding-left 0.2s ease,
+        color 0.2s ease;
     }
 
-    nav a::after {
-      content: "";
+    .menu-link:hover {
+      padding-left: 8px;
 
-      position: absolute;
-
-      left: 0;
-      bottom: -8px;
-
-      width: 0;
-      height: 1px;
-
-      background: #7a0019;
-
-      transition: width 0.25s ease;
+      color: #7a0019;
     }
 
-    nav a:hover::after {
-      width: 100%;
+    .menu-link span {
+      font-size: 10px;
+
+      color: #7a0019;
+
+      letter-spacing: 0.1em;
     }
 
 
@@ -147,15 +284,16 @@
       align-items: center;
 
       position: relative;
+
       overflow: hidden;
 
       background:
         linear-gradient(
           90deg,
-          rgba(15,15,15,0.78),
-          rgba(15,15,15,0.18)
+          rgba(15, 15, 15, 0.78),
+          rgba(15, 15, 15, 0.18)
         ),
-        url("images/ポスター.jpg");
+        url("images/hero.jpg");
 
       background-size: cover;
       background-position: center;
@@ -174,9 +312,9 @@
 
       font-family: Georgia, serif;
 
-      font-size: clamp(42px,7vw,100px);
+      font-size: clamp(42px, 7vw, 100px);
 
-      color: rgba(255,255,255,0.055);
+      color: rgba(255, 255, 255, 0.055);
 
       letter-spacing: 0.08em;
 
@@ -185,6 +323,7 @@
 
     .hero-content {
       position: relative;
+
       z-index: 2;
 
       max-width: 720px;
@@ -205,7 +344,7 @@
     .hero h1 {
       margin: 0;
 
-      font-size: clamp(44px,6vw,78px);
+      font-size: clamp(44px, 6vw, 78px);
 
       line-height: 1.22;
 
@@ -219,7 +358,7 @@
 
       font-family: Georgia, serif;
 
-      font-size: clamp(21px,3vw,35px);
+      font-size: clamp(21px, 3vw, 35px);
 
       letter-spacing: 0.18em;
     }
@@ -283,7 +422,7 @@
     .intro h2 {
       margin: 12px 0 8px;
 
-      font-size: clamp(30px,4vw,46px);
+      font-size: clamp(30px, 4vw, 46px);
 
       font-weight: 500;
 
@@ -311,8 +450,8 @@
       display: grid;
 
       grid-template-columns:
-        minmax(0,1.8fr)
-        minmax(280px,0.9fr);
+        minmax(0, 1.8fr)
+        minmax(280px, 0.9fr);
 
       gap: 30px;
 
@@ -369,7 +508,7 @@
 
       box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.06);
+        rgba(0, 0, 0, 0.06);
     }
 
     .pickup-image {
@@ -387,6 +526,7 @@
       height: 100%;
 
       object-fit: cover;
+
       object-position: center;
     }
 
@@ -460,7 +600,7 @@
     .pickup-body h3 {
       margin: 0;
 
-      font-size: clamp(25px,3vw,38px);
+      font-size: clamp(25px, 3vw, 38px);
 
       line-height: 1.45;
 
@@ -501,8 +641,8 @@
 
       background:
         linear-gradient(
-          rgba(12,12,12,.78),
-          rgba(12,12,12,.86)
+          rgba(12, 12, 12, 0.78),
+          rgba(12, 12, 12, 0.86)
         ),
         linear-gradient(
           135deg,
@@ -536,7 +676,7 @@
       height: 1px;
 
       background:
-        rgba(255,255,255,.65);
+        rgba(255, 255, 255, 0.65);
 
       margin: 26px auto;
     }
@@ -549,12 +689,15 @@
       font-weight: 500;
 
       letter-spacing: 0.08em;
+
+      line-height: 1.6;
     }
 
     .next-card p {
       margin: 12px 0 0;
 
-      color: rgba(255,255,255,.72);
+      color:
+        rgba(255, 255, 255, 0.72);
 
       font-size: 13px;
     }
@@ -620,7 +763,7 @@
       display: grid;
 
       grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
       gap: 24px;
     }
@@ -642,7 +785,7 @@
 
       box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.06);
+        rgba(0, 0, 0, 0.06);
     }
 
     .article-image {
@@ -660,6 +803,7 @@
       height: 100%;
 
       object-fit: cover;
+
       object-position: center;
     }
 
@@ -689,8 +833,8 @@
     .official {
       background:
         linear-gradient(
-          rgba(9,21,31,.88),
-          rgba(9,21,31,.92)
+          rgba(9, 21, 31, 0.88),
+          rgba(9, 21, 31, 0.92)
         ),
         linear-gradient(
           135deg,
@@ -711,7 +855,7 @@
       letter-spacing: 0.12em;
 
       color:
-        rgba(255,255,255,.72);
+        rgba(255, 255, 255, 0.72);
     }
 
     .official-date {
@@ -737,7 +881,7 @@
 
       border:
         1px solid
-        rgba(255,255,255,.75);
+        rgba(255, 255, 255, 0.75);
 
       padding: 15px 34px;
 
@@ -799,10 +943,6 @@
         min-height: 66px;
       }
 
-      nav {
-        display: none;
-      }
-
       .hero {
         min-height: 540px;
       }
@@ -817,10 +957,6 @@
 
       .articles-grid {
         grid-template-columns: 1fr;
-      }
-
-      .article-image {
-        aspect-ratio: 16 / 9;
       }
 
       .footer-inner {
@@ -846,8 +982,44 @@
           );
       }
 
+      .header-inner {
+        min-height: 64px;
+      }
+
       .site-logo-main {
         font-size: 20px;
+      }
+
+      .site-logo-sub {
+        font-size: 8px;
+      }
+
+      .menu-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .menu-button span {
+        width: 24px;
+      }
+
+      .menu-drawer {
+        width: 88vw;
+      }
+
+      .menu-drawer-inner {
+        padding:
+          110px
+          30px
+          50px;
+      }
+
+      .menu-link {
+        font-size: 23px;
+      }
+
+      .hero {
+        min-height: 520px;
       }
 
       .hero h1 {
@@ -860,6 +1032,10 @@
 
       .hero-date {
         font-size: 23px;
+      }
+
+      .hero-place {
+        font-size: 15px;
       }
 
       .intro {
@@ -878,9 +1054,20 @@
         padding: 20px;
       }
 
+      .next-card {
+        padding:
+          50px
+          26px;
+      }
+
+      .next-card h3 {
+        font-size: 24px;
+      }
+
     }
 
   </style>
+
 </head>
 
 
@@ -895,7 +1082,11 @@
 
     <div class="container header-inner">
 
-      <a class="site-logo" href="/">
+
+      <a
+        class="site-logo"
+        href="/"
+      >
 
         <span class="site-logo-main">
           オール早慶戦
@@ -908,29 +1099,97 @@
       </a>
 
 
-      <nav>
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="menuDrawer"
+      >
 
-        <a href="/">
-          TOP
-        </a>
+        <span></span>
+        <span></span>
+        <span></span>
 
-        <a href="/#articles">
-          ARTICLE
-        </a>
+      </button>
 
-        <a
-          href="https://allsoukei2026.jp/"
-          target="_blank"
-          rel="noopener"
-        >
-          OFFICIAL SITE
-        </a>
-
-      </nav>
 
     </div>
 
   </header>
+
+
+
+  <!-- =========================
+       HAMBURGER MENU
+  ========================= -->
+
+  <div
+    class="menu-overlay"
+    id="menuOverlay"
+  ></div>
+
+
+  <div
+    class="menu-drawer"
+    id="menuDrawer"
+  >
+
+    <div class="menu-drawer-inner">
+
+
+      <div class="menu-small">
+        ALL WASEDA-KEIO
+      </div>
+
+
+      <a
+        href="/"
+        class="menu-link"
+      >
+
+        <span>
+          01
+        </span>
+
+        TOP
+
+      </a>
+
+
+      <a
+        href="/#articles"
+        class="menu-link"
+      >
+
+        <span>
+          02
+        </span>
+
+        ARTICLES
+
+      </a>
+
+
+      <a
+        href="https://allsoukei2026.jp/"
+        target="_blank"
+        rel="noopener"
+        class="menu-link"
+      >
+
+        <span>
+          03
+        </span>
+
+        OFFICIAL SITE
+
+      </a>
+
+
+    </div>
+
+  </div>
 
 
 
@@ -947,14 +1206,15 @@
 
         <div class="hero-content">
 
+
           <div class="hero-kicker">
             WASEDA × KEIO
           </div>
 
 
           <h1>
-            懐かしの甲子園<br>
-            いざ決戦の時
+            伝統は、<br>
+            ここで交わる。
           </h1>
 
 
@@ -970,15 +1230,19 @@
 
           <div class="hero-info">
 
+
             <div class="hero-date">
               2026.11.28 SAT
             </div>
+
 
             <div class="hero-place">
               阪神甲子園球場
             </div>
 
+
           </div>
+
 
         </div>
 
@@ -996,6 +1260,7 @@
 
       <div class="container">
 
+
         <div class="section-en">
           SPECIAL CONTENTS
         </div>
@@ -1010,6 +1275,7 @@
           選手、応援、歴史。さまざまな視点から、
           オール早慶戦の魅力をお届けします。
         </p>
+
 
       </div>
 
@@ -1028,9 +1294,13 @@
         <div class="feature-grid">
 
 
-          <!-- PICK UP -->
+
+          <!-- =====================
+               PICK UP
+          ====================== -->
 
           <div>
+
 
             <div class="feature-label">
 
@@ -1045,8 +1315,11 @@
             </div>
 
 
+
             {% assign pickup_articles = site.articles | where: "pickup", true | sort: "date" | reverse %}
+
             {% assign pickup = pickup_articles | first %}
+
 
 
             {% if pickup %}
@@ -1054,34 +1327,42 @@
 
               <a
                 class="pickup-card"
-                href="{{ pickup.url }}"
+                href="{{ pickup.url | relative_url }}"
               >
 
 
                 <div class="pickup-image">
 
+
                   {% if pickup.image %}
+
 
                     <img
                       src="{{ pickup.image }}"
                       alt="{{ pickup.title }}"
                     >
 
+
                   {% else %}
+
 
                     <div class="placeholder">
                       PICK UP IMAGE
                     </div>
 
+
                   {% endif %}
 
+
                 </div>
+
 
 
                 <div class="pickup-body">
 
 
                   <div class="meta">
+
 
                     <span>
                       {{ pickup.date | date: "%Y.%m.%d" }}
@@ -1094,7 +1375,9 @@
                       {{ pickup.category }}
                     </span>
 
+
                   </div>
+
 
 
                   <h3>
@@ -1102,13 +1385,17 @@
                   </h3>
 
 
+
                   {% if pickup.description %}
+
 
                     <p>
                       {{ pickup.description }}
                     </p>
 
+
                   {% endif %}
+
 
 
                   <div class="read-more">
@@ -1122,27 +1409,34 @@
               </a>
 
 
+
             {% else %}
 
 
               <div class="pickup-card">
 
+
                 <div class="pickup-image">
+
 
                   <div class="placeholder">
                     PICK UP IMAGE
                   </div>
+
 
                 </div>
 
 
                 <div class="pickup-body">
 
+
                   <p>
                     現在PICK UP記事はありません。
                   </p>
 
+
                 </div>
+
 
               </div>
 
@@ -1154,51 +1448,93 @@
 
 
 
-          <!-- NEXT CONTENT -->
+          <!-- =====================
+               NEXT CONTENT
+          ====================== -->
 
           <div>
 
+
             <div class="feature-label">
+
 
               <strong>
                 NEXT CONTENT
               </strong>
 
+
               <span>
                 次回の公開予定
               </span>
 
+
             </div>
+
+
 
             <div class="next-card">
 
-              <div class="next-date">
-                {{ site.data.home.next_date | date: "%Y.%m.%d" }}
+
+              {% if site.data.home.next_date %}
+
+
+                <div class="next-date">
+                  {{ site.data.home.next_date | date: "%Y.%m.%d" }}
+                </div>
+
+
+              {% endif %}
+
+
+
+              <div class="next-line">
               </div>
-      
-              <div class="next-line"></div>
 
-              <h3>
-               {{ site.data.home.next_title }}
-              </h3>
 
-                {% if site.data.home.next_description %}
-              <p>
-                 {{ site.data.home.next_description }}
-              </p>
-                {% endif %}
 
-              <div class="coming">
-                {{ site.data.home.next_status }}
-              </div>
+              {% if site.data.home.next_title %}
+
+
+                <h3>
+                  {{ site.data.home.next_title }}
+                </h3>
+
+
+              {% endif %}
+
+
+
+              {% if site.data.home.next_description %}
+
+
+                <p>
+                  {{ site.data.home.next_description }}
+                </p>
+
+
+              {% endif %}
+
+
+
+              {% if site.data.home.next_status %}
+
+
+                <div class="coming">
+                  {{ site.data.home.next_status }}
+                </div>
+
+
+              {% endif %}
+
 
             </div>
-          
+
 
           </div>
 
 
         </div>
+
 
       </div>
 
@@ -1221,17 +1557,22 @@
 
         <div class="section-heading">
 
+
           <div class="section-heading-left">
+
 
             <h2>
               ARTICLES
             </h2>
 
+
             <span>
               公開された記事
             </span>
 
+
           </div>
+
 
         </div>
 
@@ -1243,12 +1584,13 @@
           {% assign articles = site.articles | sort: "date" | reverse %}
 
 
+
           {% for article in articles %}
 
 
             <a
               class="article-card"
-              href="{{ article.url }}"
+              href="{{ article.url | relative_url }}"
             >
 
 
@@ -1293,7 +1635,9 @@
                   <span
                     class="tag {% if article.category == 'KEIO' %}keio{% endif %}"
                   >
+
                     {{ article.category }}
+
                   </span>
 
 
@@ -1376,15 +1720,19 @@
 
       <div class="site-logo">
 
+
         <span class="site-logo-main">
           オール早慶戦
         </span>
+
 
         <span class="site-logo-sub">
           SPECIAL CONTENTS
         </span>
 
+
       </div>
+
 
 
       <div class="copyright">
@@ -1396,6 +1744,134 @@
 
 
   </footer>
+
+
+
+  <!-- =========================
+       MENU SCRIPT
+  ========================= -->
+
+  <script>
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const menuDrawer =
+      document.getElementById("menuDrawer");
+
+    const menuOverlay =
+      document.getElementById("menuOverlay");
+
+
+    function openMenu() {
+
+      menuButton.classList.add("active");
+
+      menuDrawer.classList.add("active");
+
+      menuOverlay.classList.add("active");
+
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+
+      menuButton.setAttribute(
+        "aria-label",
+        "メニューを閉じる"
+      );
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeMenu() {
+
+      menuButton.classList.remove("active");
+
+      menuDrawer.classList.remove("active");
+
+      menuOverlay.classList.remove("active");
+
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+
+      menuButton.setAttribute(
+        "aria-label",
+        "メニューを開く"
+      );
+
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    menuButton.addEventListener(
+      "click",
+      function () {
+
+        if (
+          menuDrawer.classList.contains("active")
+        ) {
+
+          closeMenu();
+
+        } else {
+
+          openMenu();
+
+        }
+
+      }
+    );
+
+
+    menuOverlay.addEventListener(
+      "click",
+      closeMenu
+    );
+
+
+    document
+      .querySelectorAll(".menu-link")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
+      });
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Escape" &&
+          menuDrawer.classList.contains("active")
+        ) {
+
+          closeMenu();
+
+        }
+
+      }
+    );
+
+  </script>
 
 
 </body>
