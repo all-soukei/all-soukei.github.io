@@ -1170,36 +1170,30 @@
 
             </div>
 
-
             <div class="next-card">
 
-
               <div class="next-date">
-                2026.09.20
+                {{ site.data.home.next_date | date: "%Y.%m.%d" }}
               </div>
-
-
-              <div class="next-line">
-              </div>
-
+      
+              <div class="next-line"></div>
 
               <h3>
-                地元ゆかりの選手に聞く
+               {{ site.data.home.next_title }}
               </h3>
 
-
+                {% if site.data.home.next_description %}
               <p>
-                おすすめのもの・場所<br>
-                慶應義塾大学編
+                 {{ site.data.home.next_description }}
               </p>
-
+                {% endif %}
 
               <div class="coming">
-                COMING SOON
+                {{ site.data.home.next_status }}
               </div>
 
-
             </div>
+          
 
           </div>
 
