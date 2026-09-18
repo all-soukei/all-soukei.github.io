@@ -1,10 +1,11 @@
 title: オール早慶戦 SPECIAL CONTENTS
 timezone: Asia/Tokyo
 
+future: ture
+
 collections:
   articles:
     output: true
-    future: ture
     permalink: /articles/:name.html
 
 defaults:
