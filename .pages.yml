@@ -108,3 +108,36 @@ content:
             type: string
             required: true
             default: COMING SOON
+            
+              - name: home
+                label: トップページ設定
+                type: file
+                path: _data/home.yml
+                format: yaml
+                operations:
+                  delete: false
+
+              fields:
+                - name: next_date
+                  label: NEXT CONTENT 公開予定日
+                  type: date
+                  required: true
+                  options:
+                    time: false
+                    format: yyyy-MM-dd
+
+                - name: next_title
+                  label: NEXT CONTENT タイトル
+                  type: string
+                  required: true
+
+                - name: next_description
+                  label: NEXT CONTENT 説明
+                  type: text
+                  required: false
+  
+                - name: next_status
+                  label: 表示テキスト
+                  type: string
+                  required: true
+                  default: COMING SOON
