@@ -604,8 +604,6 @@
       line-height: 1.45;
 
       font-weight: 500;
-
-       white-space: pre-line;
     }
 
     .pickup-body p {
@@ -824,8 +822,6 @@
       line-height: 1.55;
 
       font-weight: 500;
-
-      white-space: pre-line;
     }
 
 
@@ -1347,7 +1343,9 @@
 
 
 
-          <!-- PICK UP -->
+          <!-- =====================
+               PICK UP
+          ====================== -->
 
           <div>
 
@@ -1388,7 +1386,7 @@
 
                     <img
                       src="{{ pickup.image }}"
-                      alt="{{ pickup.title }}"
+                      alt="{{ pickup.title }}{% if pickup.title_line2 %} {{ pickup.title_line2 }}{% endif %}"
                     >
 
 
@@ -1430,7 +1428,14 @@
 
 
                   <h3>
+
                     {{ pickup.title }}
+
+                    {% if pickup.title_line2 %}
+                      <br>
+                      {{ pickup.title_line2 }}
+                    {% endif %}
+
                   </h3>
 
 
@@ -1478,9 +1483,11 @@
 
                 <div class="pickup-body">
 
+
                   <p>
                     現在PICK UP記事はありません。
                   </p>
+
 
                 </div>
 
@@ -1495,7 +1502,9 @@
 
 
 
-          <!-- NEXT CONTENT -->
+          <!-- =====================
+               NEXT CONTENT
+          ====================== -->
 
           <div>
 
@@ -1646,7 +1655,7 @@
 
                   <img
                     src="{{ article.image }}"
-                    alt="{{ article.title }}"
+                    alt="{{ article.title }}{% if article.title_line2 %} {{ article.title_line2 }}{% endif %}"
                   >
 
 
@@ -1688,7 +1697,14 @@
 
 
                 <h3>
+
                   {{ article.title }}
+
+                  {% if article.title_line2 %}
+                    <br>
+                    {{ article.title_line2 }}
+                  {% endif %}
+
                 </h3>
 
 
