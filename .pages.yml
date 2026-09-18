@@ -31,9 +31,14 @@ content:
     fields:
 
       - name: title
-        label: 記事タイトル
-        type: text
+        label: 記事タイトル 1行目
+        type: string
         required: true
+
+      - name: title_line2
+        label: 記事タイトル 2行目
+        type: string
+        required: false
 
       - name: date
         label: 公開日
