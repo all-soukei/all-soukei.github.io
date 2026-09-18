@@ -59,11 +59,14 @@ content:
         label: メイン画像
         type: image
         required: false
+        options:
+          extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
       - name: body
-        label: 本文
-        type: rich-text
-        required: true
-        options:
-          format: markdown
-          switcher: false
+      label: 本文
+      type: rich-text
+      required: true
+      options:
+        format: markdown
+        switcher: false
+        extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
