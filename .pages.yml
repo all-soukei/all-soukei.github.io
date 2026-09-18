@@ -3,8 +3,6 @@ media:
   output: /images
   rename: safe
   categories: [image]
-  rename: safe
-  categories: [image]
 
 content:
   - name: articles
