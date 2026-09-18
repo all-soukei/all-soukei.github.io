@@ -62,6 +62,11 @@ content:
         options:
           extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
+        - name: pickup
+          label: PICK UPに表示
+          type: boolean
+          default: false  
+
       - name: body
       label: 本文
       type: rich-text
