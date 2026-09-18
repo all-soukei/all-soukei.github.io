@@ -76,13 +76,13 @@ content:
           switcher: false
           extensions: [jpg, JPG, jpeg, JPEG, png, PNG, webp, WEBP]
 
-        - name: home
-          label: トップページ設定
-          type: file
-          path: _data/home.yml
-          format: yaml
-          operations:
-            delete: false
+     - name: home
+       label: トップページ設定
+       type: file
+       path: _data/home.yml
+       format: yaml
+       operations:
+        delete: false
 
         fields:
           - name: next_date
