@@ -1,6 +1,8 @@
 media:
-  input: images/uploads
-  output: /images/uploads
+  input: images
+  output: /images
+  rename: safe
+  categories: [image]
   rename: safe
   categories: [image]
 
