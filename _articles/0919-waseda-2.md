@@ -4,7 +4,8 @@ title_line2: 德丸快晴
 date: 2026-09-19
 category: WASEDA
 description: 大阪府大阪市出身の德丸快晴に、地元のおすすめスポットや料理、オール早慶戦で応援してほしいポイントを聞きました。
-pickup: false
+image: /images/IMG_8628.jpg
+pickup: true
 ---
 ## 德丸 快晴
 
