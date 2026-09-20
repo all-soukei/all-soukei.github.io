@@ -1,5 +1,5 @@
 ---
-title: 地元ゆかり選手紹介
+title: 関西ゆかり選手紹介
 title_line2: 中村俊瑛
 date: 2026-09-20
 category: WASEDA
