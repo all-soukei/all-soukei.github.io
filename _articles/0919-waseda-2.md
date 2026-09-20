@@ -1,7 +1,7 @@
 ---
 title: 地元ゆかり選手紹介
 title_line2: 德丸快晴
-date: 2026-09-19
+date: 2026-09-20
 category: WASEDA
 description: 大阪府大阪市出身の德丸快晴に、地元のおすすめスポットや料理、オール早慶戦で応援してほしいポイントを聞きました。
 image: /images/IMG_8628.jpg
