@@ -1,7 +1,7 @@
 ---
 title: 地元ゆかり選手紹介
 title_line2: 中村俊瑛
-date: 2026-09-19
+date: 2026-09-20
 category: WASEDA
 description: 兵庫県加古川市出身の中村俊瑛に、地元のおすすめスポットや料理、オール早慶戦で応援してほしいポイントを聞きました。
 image: /images/IMG_0112.jpg
