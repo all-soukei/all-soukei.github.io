@@ -5,7 +5,7 @@ date: 2026-09-20
 category: WASEDA
 description: 兵庫県加古川市出身の中村俊瑛に、地元のおすすめスポットや料理、オール早慶戦で応援してほしいポイントを聞きました。
 image: /images/IMG_0112.jpg
-pickup: true
+pickup: false
 ---
 ## 中村 俊瑛
 
