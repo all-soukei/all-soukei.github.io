@@ -9,7 +9,7 @@ description: >-
 
   Vol.1では、早稲田大学の #安田虎汰郎 (3年・投手・ #日大三高 )と慶應義塾大学の #松井喜一 (3年・投手・ #慶應義塾高校
   )が対談いたしました⚾️
-image: /images/s83157064.jpg
+image: /images/file.jpg
 pickup: true
 ---
 ――まずは自己紹介をお願いします。
