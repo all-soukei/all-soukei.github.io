@@ -1,7 +1,13 @@
 title: オール早慶戦 SPECIAL CONTENTS
+description: 2026年11月28日に阪神甲子園球場で開催されるオール早慶戦をより楽しむための広報特設サイト。選手、対談、歴史、応援などの特集コンテンツを掲載します。
+
+url: "https://all-soukei.github.io"
+baseurl: ""
+
+lang: ja-JP
 timezone: Asia/Tokyo
 
-future: ture
+future: true
 
 collections:
   articles:
