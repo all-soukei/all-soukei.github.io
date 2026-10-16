@@ -668,6 +668,16 @@
       background: #14213d;
     }
 
+    .tag.special {
+  background: linear-gradient(
+    135deg,
+    #7a0019 0%,
+    #7a0019 50%,
+    #14213d 50%,
+    #14213d 100%
+    );
+    }
+
     .pickup-body h3 {
       margin: 0;
 
@@ -1691,11 +1701,11 @@
                       {{ pickup.date | date: "%Y.%m.%d" }}
                     </span>
 
-                    <span
-                      class="tag {% if pickup.category == 'KEIO' %}keio{% endif %}"
+                   <span
+                    class="tag {% if pickup.category == 'KEIO' %}keio{% elsif pickup.category == 'SPECIAL' %}special{% endif %}"
                     >
                       {{ pickup.category }}
-                    </span>
+                  </span>
 
                   </div>
 
@@ -1900,7 +1910,7 @@
                   </span>
 
                   <span
-                    class="tag {% if article.category == 'KEIO' %}keio{% endif %}"
+                  class="tag {% if article.category == 'KEIO' %}keio{% elsif article.category == 'SPECIAL' %}special{% endif %}"
                   >
                     {{ article.category }}
                   </span>
