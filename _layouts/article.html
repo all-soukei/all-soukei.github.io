@@ -131,6 +131,7 @@
   }
   </script>
 
+
   <style>
 
     * {
@@ -178,7 +179,6 @@
 
     header {
       background: rgba(255, 255, 255, .96);
-
       border-bottom: 1px solid #ddd8cf;
     }
 
@@ -186,7 +186,6 @@
       min-height: 76px;
 
       display: flex;
-
       justify-content: space-between;
       align-items: center;
 
@@ -293,20 +292,30 @@
 
     /* =========================
        MAIN IMAGE
+       縦写真・横写真ともに切らずに表示
     ========================= */
 
     .main-image {
       width: min(1200px, calc(100% - 40px));
 
       margin: 0 auto;
+
+      display: flex;
+      justify-content: center;
     }
 
     .main-image img {
-      width: 100%;
+      display: block;
 
-      max-height: 700px;
+      width: auto;
+      max-width: 100%;
 
-      object-fit: cover;
+      height: auto;
+      max-height: none;
+
+      margin: 0 auto;
+
+      object-fit: contain;
     }
 
 
@@ -356,10 +365,11 @@
 
     .article-content img {
       width: 100%;
+      height: auto;
 
       margin: 55px 0;
 
-      height: auto;
+      object-fit: contain;
     }
 
     .article-content blockquote {
@@ -493,6 +503,10 @@
         padding-top: 55px;
       }
 
+      .main-image {
+        width: calc(100% - 28px);
+      }
+
       .footer-inner {
         flex-direction: column;
 
@@ -504,6 +518,7 @@
     }
 
   </style>
+
 </head>
 
 
