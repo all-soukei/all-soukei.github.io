@@ -11,18 +11,24 @@ locale: "ja"
 collections:
   - name: "articles"
     label: "記事"
-    folder: "content/articles"
+    folder: "_articles"
     create: true
-    slug: "{{year}}{{month}}{{day}}-{{slug}}"
+    slug: "{{month}}{{day}}-{{slug}}"
 
     fields:
       - label: "記事タイトル"
         name: "title"
         widget: "string"
 
+      - label: "記事タイトル2行目"
+        name: "title_line2"
+        widget: "string"
+        required: false
+
       - label: "公開日"
         name: "date"
         widget: "datetime"
+        format: "YYYY-MM-DD"
         date_format: "YYYY.MM.DD"
         time_format: false
 
@@ -39,10 +45,31 @@ collections:
         widget: "text"
         required: false
 
-      - label: "メイン画像"
+      - label: "PICK UPに表示"
+        name: "pickup"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "1枚目の写真"
         name: "image"
         widget: "image"
         required: false
+        hint: "PICK UP・ARTICLES一覧・記事の1枚目に使用します"
+
+      - label: "2枚目以降の写真"
+        name: "gallery"
+        widget: "list"
+        required: false
+        label_singular: "写真を追加"
+        allow_add: true
+        allow_remove: true
+        allow_reorder: true
+        hint: "追加した順番で記事内に表示されます"
+        field:
+          label: "写真"
+          name: "image"
+          widget: "image"
 
       - label: "本文"
         name: "body"
