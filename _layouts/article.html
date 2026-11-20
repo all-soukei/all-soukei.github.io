@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {% assign seo_title = page.title %}
+
   {% if page.title_line2 %}
     {% capture seo_title %}{{ page.title }}｜{{ page.title_line2 }}{% endcapture %}
   {% endif %}
@@ -33,13 +34,22 @@
     href="{{ page.url | absolute_url }}"
   >
 
+
   <!-- =========================
        OGP
   ========================= -->
 
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="オール早慶戦 SPECIAL CONTENTS">
+
+  <meta
+    property="og:type"
+    content="article"
+  >
+
+  <meta
+    property="og:site_name"
+    content="オール早慶戦 SPECIAL CONTENTS"
+  >
 
   <meta
     property="og:title"
@@ -67,17 +77,21 @@
   >
 
   {% if page.date %}
+
     <meta
       property="article:published_time"
       content="{{ page.date | date_to_xmlschema }}"
     >
+
   {% endif %}
 
   {% if page.category %}
+
     <meta
       property="article:section"
       content="{{ page.category | escape }}"
     >
+
   {% endif %}
 
 
@@ -85,7 +99,10 @@
        X / Twitter
   ========================= -->
 
-  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
 
   <meta
     name="twitter:title"
@@ -111,22 +128,30 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
+
     "headline": {{ seo_title | strip | jsonify }},
+
     "description": {{ seo_description | jsonify }},
+
     "url": "{{ page.url | absolute_url }}",
+
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "{{ page.url | absolute_url }}"
     },
+
     {% if page.date %}
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     {% endif %}
+
     "image": "{{ seo_image | absolute_url }}",
+
     "isPartOf": {
       "@type": "WebSite",
       "name": "オール早慶戦 SPECIAL CONTENTS",
       "url": "https://all-soukei.github.io/"
     },
+
     "inLanguage": "ja-JP"
   }
   </script>
@@ -138,9 +163,11 @@
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       margin: 0;
@@ -157,20 +184,30 @@
       line-height: 2;
     }
 
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
 
     img {
       display: block;
       max-width: 100%;
     }
 
+
+    button {
+      font: inherit;
+    }
+
+
     .container {
       width: min(1100px, calc(100% - 40px));
+
       margin: 0 auto;
     }
+
 
 
     /* =========================
@@ -179,32 +216,40 @@
 
     header {
       background: rgba(255, 255, 255, .96);
+
       border-bottom: 1px solid #ddd8cf;
     }
+
 
     .header-inner {
       min-height: 76px;
 
       display: flex;
+
       justify-content: space-between;
       align-items: center;
 
       gap: 30px;
     }
 
+
     .logo {
       display: flex;
+
       flex-direction: column;
 
       line-height: 1;
     }
 
+
     .logo-main {
       font-size: 24px;
+
       font-weight: 700;
 
       letter-spacing: .08em;
     }
+
 
     .logo-sub {
       margin-top: 8px;
@@ -215,6 +260,7 @@
 
       letter-spacing: .34em;
     }
+
 
     nav {
       display: flex;
@@ -229,6 +275,7 @@
     }
 
 
+
     /* =========================
        ARTICLE HEADER
     ========================= */
@@ -236,6 +283,7 @@
     .article-header {
       padding: 100px 0 65px;
     }
+
 
     .article-type {
       color: #7a0019;
@@ -249,9 +297,28 @@
       margin-bottom: 20px;
     }
 
+
     .article-type.keio {
       color: #14213d;
     }
+
+
+    .article-type.special {
+      background:
+        linear-gradient(
+          135deg,
+          #7a0019 0%,
+          #7a0019 50%,
+          #14213d 50%,
+          #14213d 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
 
     .article-date {
       font-family: Georgia, serif;
@@ -264,6 +331,7 @@
 
       margin-bottom: 20px;
     }
+
 
     .article-title {
       margin: 0;
@@ -279,6 +347,7 @@
       letter-spacing: .04em;
     }
 
+
     .article-subtitle {
       margin-top: 24px;
 
@@ -290,21 +359,60 @@
     }
 
 
+
     /* =========================
-       MAIN IMAGE
-       縦写真・横写真ともに切らずに表示
+       PHOTO GALLERY
     ========================= */
 
-    .main-image {
+    .photo-gallery {
       width: min(1200px, calc(100% - 40px));
 
       margin: 0 auto;
 
-      display: flex;
-      justify-content: center;
+      position: relative;
     }
 
-    .main-image img {
+
+    .photo-track {
+      width: 100%;
+
+      display: flex;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+
+      overscroll-behavior-x: contain;
+
+      scrollbar-width: none;
+
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+    .photo-track::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    .photo-slide {
+      flex: 0 0 100%;
+
+      width: 100%;
+
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+
+    .photo-slide img {
       display: block;
 
       width: auto;
@@ -319,6 +427,106 @@
     }
 
 
+    .gallery-button {
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 48px;
+      height: 48px;
+
+      padding: 0;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, .75);
+
+      border-radius: 50%;
+
+      background:
+        rgba(0, 0, 0, .48);
+
+      color: white;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 31px;
+
+      font-weight: 300;
+
+      line-height: 1;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      z-index: 20;
+
+      transition:
+        background .2s ease,
+        opacity .2s ease;
+    }
+
+
+    .gallery-button:hover {
+      background:
+        rgba(0, 0, 0, .7);
+    }
+
+
+    .gallery-button.prev {
+      left: 16px;
+    }
+
+
+    .gallery-button.next {
+      right: 16px;
+    }
+
+
+    .gallery-button:disabled {
+      opacity: .25;
+
+      cursor: default;
+    }
+
+
+    .gallery-counter {
+      margin-top: 13px;
+
+      text-align: center;
+
+      color: #77736c;
+
+      font-family: Georgia, serif;
+
+      font-size: 12px;
+
+      letter-spacing: .08em;
+    }
+
+
+    .gallery-guide {
+      margin-top: 6px;
+
+      text-align: center;
+
+      color: #99958d;
+
+      font-size: 10px;
+
+      letter-spacing: .08em;
+    }
+
+
+
     /* =========================
        ARTICLE BODY
     ========================= */
@@ -331,6 +539,7 @@
       padding: 80px 0 110px;
     }
 
+
     .article-content p {
       margin: 0 0 30px;
 
@@ -339,12 +548,15 @@
       line-height: 2.2;
     }
 
+
     .article-content h2 {
       margin: 80px 0 30px;
 
       padding-top: 20px;
 
-      border-top: 1px solid #bbb6ac;
+      border-top:
+        1px solid
+        #bbb6ac;
 
       font-size: 28px;
 
@@ -352,6 +564,7 @@
 
       line-height: 1.6;
     }
+
 
     .article-content h3 {
       margin: 55px 0 24px;
@@ -363,8 +576,10 @@
       line-height: 1.7;
     }
 
+
     .article-content img {
       width: 100%;
+
       height: auto;
 
       margin: 55px 0;
@@ -372,15 +587,23 @@
       object-fit: contain;
     }
 
+
     .article-content blockquote {
       margin: 50px 0;
 
-      padding: 5px 0 5px 25px;
+      padding:
+        5px
+        0
+        5px
+        25px;
 
-      border-left: 2px solid #7a0019;
+      border-left:
+        2px solid
+        #7a0019;
 
       color: #555;
     }
+
 
     .article-content a {
       text-decoration: underline;
@@ -389,17 +612,21 @@
     }
 
 
+
     /* =========================
        BACK
     ========================= */
 
     .back-area {
-      border-top: 1px solid #cbc7bf;
+      border-top:
+        1px solid
+        #cbc7bf;
 
       padding-top: 45px;
 
       margin-top: 80px;
     }
+
 
     .back-link {
       font-family: Georgia, serif;
@@ -408,6 +635,7 @@
 
       letter-spacing: .15em;
     }
+
 
 
     /* =========================
@@ -424,18 +652,23 @@
       text-align: center;
     }
 
+
     .official p {
       margin: 0 0 20px;
 
       font-size: 13px;
 
-      color: rgba(255, 255, 255, .7);
+      color:
+        rgba(255, 255, 255, .7);
     }
+
 
     .official a {
       display: inline-block;
 
-      border: 1px solid rgba(255, 255, 255, .7);
+      border:
+        1px solid
+        rgba(255, 255, 255, .7);
 
       padding: 13px 30px;
 
@@ -443,6 +676,7 @@
 
       letter-spacing: .1em;
     }
+
 
 
     /* =========================
@@ -455,12 +689,14 @@
       background: white;
     }
 
+
     .footer-inner {
       display: flex;
 
       justify-content: space-between;
       align-items: center;
     }
+
 
     .copyright {
       color: #99958d;
@@ -473,6 +709,7 @@
     }
 
 
+
     /* =========================
        MOBILE
     ========================= */
@@ -483,29 +720,59 @@
         display: none;
       }
 
+
       .header-inner {
         min-height: 65px;
       }
+
 
       .logo-main {
         font-size: 20px;
       }
 
+
       .article-header {
         padding: 70px 0 45px;
       }
+
 
       .article-title {
         font-size: 34px;
       }
 
+
       .article-content {
         padding-top: 55px;
       }
 
-      .main-image {
+
+      .photo-gallery {
         width: calc(100% - 28px);
       }
+
+
+      .gallery-button {
+        width: 40px;
+        height: 40px;
+
+        font-size: 27px;
+      }
+
+
+      .gallery-button.prev {
+        left: 8px;
+      }
+
+
+      .gallery-button.next {
+        right: 8px;
+      }
+
+
+      .gallery-guide {
+        display: block;
+      }
+
 
       .footer-inner {
         flex-direction: column;
@@ -513,6 +780,15 @@
         align-items: flex-start;
 
         gap: 20px;
+      }
+
+    }
+
+
+    @media (min-width: 701px) {
+
+      .gallery-guide {
+        display: none;
       }
 
     }
@@ -533,11 +809,16 @@
 
     <div class="container header-inner">
 
-      <a href="/" class="logo">
+
+      <a
+        href="/"
+        class="logo"
+      >
 
         <span class="logo-main">
           オール早慶戦
         </span>
+
 
         <span class="logo-sub">
           SPECIAL CONTENTS
@@ -552,9 +833,11 @@
           TOP
         </a>
 
+
         <a href="/#articles">
           ARTICLE
         </a>
+
 
         <a
           href="https://allsoukei2026.jp/"
@@ -565,6 +848,7 @@
         </a>
 
       </nav>
+
 
     </div>
 
@@ -585,7 +869,7 @@
 
 
         <div
-          class="article-type {% if page.category == 'KEIO' %}keio{% endif %}"
+          class="article-type {% if page.category == 'KEIO' %}keio{% elsif page.category == 'SPECIAL' %}special{% endif %}"
         >
           {{ page.category }}
         </div>
@@ -601,8 +885,11 @@
           {{ page.title }}
 
           {% if page.title_line2 %}
+
             <br>
+
             {{ page.title_line2 }}
+
           {% endif %}
 
         </h1>
@@ -611,7 +898,9 @@
         {% if page.description %}
 
           <p class="article-subtitle">
+
             {{ page.description }}
+
           </p>
 
         {% endif %}
@@ -624,17 +913,105 @@
 
 
     <!-- =========================
-         MAIN IMAGE
+         PHOTO GALLERY
     ========================= -->
+
+    {% assign gallery_count = page.gallery | size %}
+
+    {% assign photo_count = gallery_count %}
 
     {% if page.image %}
 
-      <div class="main-image">
+      {% assign photo_count = photo_count | plus: 1 %}
 
-        <img
-          src="{{ page.image }}"
-          alt="{{ page.title }}{% if page.title_line2 %} {{ page.title_line2 }}{% endif %}"
-        >
+    {% endif %}
+
+
+    {% if photo_count > 0 %}
+
+      <div
+        class="photo-gallery"
+        data-gallery
+      >
+
+
+        <div class="photo-track">
+
+
+          {% if page.image %}
+
+            <div class="photo-slide">
+
+              <img
+                src="{{ page.image }}"
+                alt="{{ page.title }}{% if page.title_line2 %} {{ page.title_line2 }}{% endif %} 写真1"
+              >
+
+            </div>
+
+          {% endif %}
+
+
+          {% for gallery_image in page.gallery %}
+
+            <div class="photo-slide">
+
+              <img
+                src="{{ gallery_image }}"
+                alt="{{ page.title }}{% if page.title_line2 %} {{ page.title_line2 }}{% endif %} 写真{% if page.image %}{{ forloop.index | plus: 1 }}{% else %}{{ forloop.index }}{% endif %}"
+              >
+
+            </div>
+
+          {% endfor %}
+
+
+        </div>
+
+
+        {% if photo_count > 1 %}
+
+
+          <button
+            class="gallery-button prev"
+            type="button"
+            aria-label="前の写真"
+          >
+            ‹
+          </button>
+
+
+          <button
+            class="gallery-button next"
+            type="button"
+            aria-label="次の写真"
+          >
+            ›
+          </button>
+
+
+          <div class="gallery-counter">
+
+            <span class="gallery-current">
+              1
+            </span>
+
+            /
+
+            <span class="gallery-total">
+              {{ photo_count }}
+            </span>
+
+          </div>
+
+
+          <div class="gallery-guide">
+            左右にスワイプして写真を切り替え
+          </div>
+
+
+        {% endif %}
+
 
       </div>
 
@@ -711,6 +1088,7 @@
           オール早慶戦
         </span>
 
+
         <span class="logo-sub">
           SPECIAL CONTENTS
         </span>
@@ -726,6 +1104,260 @@
     </div>
 
   </footer>
+
+
+
+  <!-- =========================
+       PHOTO GALLERY SCRIPT
+  ========================= -->
+
+  <script>
+
+    document
+      .querySelectorAll("[data-gallery]")
+      .forEach(function (gallery) {
+
+
+        const track =
+          gallery.querySelector(
+            ".photo-track"
+          );
+
+
+        const slides =
+          Array.from(
+            gallery.querySelectorAll(
+              ".photo-slide"
+            )
+          );
+
+
+        const prevButton =
+          gallery.querySelector(
+            ".gallery-button.prev"
+          );
+
+
+        const nextButton =
+          gallery.querySelector(
+            ".gallery-button.next"
+          );
+
+
+        const currentNumber =
+          gallery.querySelector(
+            ".gallery-current"
+          );
+
+
+        if (
+          !track ||
+          slides.length <= 1
+        ) {
+
+          return;
+
+        }
+
+
+
+        function getCurrentIndex() {
+
+          const width =
+            track.clientWidth;
+
+
+          if (!width) {
+            return 0;
+          }
+
+
+          const index =
+            Math.round(
+              track.scrollLeft / width
+            );
+
+
+          return Math.max(
+            0,
+            Math.min(
+              index,
+              slides.length - 1
+            )
+          );
+
+        }
+
+
+
+        function updateGallery() {
+
+          const index =
+            getCurrentIndex();
+
+
+          if (currentNumber) {
+
+            currentNumber.textContent =
+              index + 1;
+
+          }
+
+
+          if (prevButton) {
+
+            prevButton.disabled =
+              index === 0;
+
+          }
+
+
+          if (nextButton) {
+
+            nextButton.disabled =
+              index ===
+              slides.length - 1;
+
+          }
+
+        }
+
+
+
+        function goToSlide(index) {
+
+          const safeIndex =
+            Math.max(
+              0,
+              Math.min(
+                index,
+                slides.length - 1
+              )
+            );
+
+
+          track.scrollTo({
+
+            left:
+              safeIndex *
+              track.clientWidth,
+
+            behavior: "smooth"
+
+          });
+
+        }
+
+
+
+        if (prevButton) {
+
+          prevButton.addEventListener(
+            "click",
+            function () {
+
+              const index =
+                getCurrentIndex();
+
+
+              goToSlide(
+                index - 1
+              );
+
+            }
+          );
+
+        }
+
+
+
+        if (nextButton) {
+
+          nextButton.addEventListener(
+            "click",
+            function () {
+
+              const index =
+                getCurrentIndex();
+
+
+              goToSlide(
+                index + 1
+              );
+
+            }
+          );
+
+        }
+
+
+
+        let ticking =
+          false;
+
+
+        track.addEventListener(
+          "scroll",
+          function () {
+
+
+            if (ticking) {
+              return;
+            }
+
+
+            ticking =
+              true;
+
+
+            window.requestAnimationFrame(
+              function () {
+
+                updateGallery();
+
+                ticking =
+                  false;
+
+              }
+            );
+
+          }
+        );
+
+
+
+        window.addEventListener(
+          "resize",
+          function () {
+
+            const index =
+              getCurrentIndex();
+
+
+            track.scrollTo({
+
+              left:
+                index *
+                track.clientWidth,
+
+              behavior: "auto"
+
+            });
+
+
+            updateGallery();
+
+          }
+        );
+
+
+
+        updateGallery();
+
+
+      });
+
+  </script>
 
 
 </body>
