@@ -13,7 +13,7 @@ collections:
     label: "記事"
     folder: "_articles"
     create: true
-    slug: "{{month}}{{day}}-{{slug}}"
+    slug: "{{year}}{{month}}{{day}}-{{slug}}"
 
     fields:
       - label: "記事タイトル"
@@ -55,7 +55,7 @@ collections:
         name: "image"
         widget: "image"
         required: false
-        hint: "PICK UP・ARTICLES一覧・記事の1枚目に使用します"
+        hint: "PICK UP・ARTICLES一覧・記事ページの1枚目に使用します"
 
       - label: "2枚目以降の写真"
         name: "gallery"
@@ -65,7 +65,8 @@ collections:
         allow_add: true
         allow_remove: true
         allow_reorder: true
-        hint: "追加した順番で記事内に表示されます"
+        collapsed: false
+        hint: "2枚目以降の写真を追加してください。ドラッグして順番を変更できます。"
         field:
           label: "写真"
           name: "image"
